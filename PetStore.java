@@ -19,21 +19,29 @@ public class PetStore {
             dadosOut[i] = JOptionPane.showInputDialog  ("Entre com " + dadosIn[i]+ ": ");
         return dadosOut;
     }
-    public Gato leGato (){
+    public Gato leGato() {
         String [] valores = new String [4];
-        String [] nomeVal = {"Nome", "Idade", "Dono", "Sexo"};
+        String [] nomeVal = {"Nome", "Idade", "Dono", "Raça", "Sexo"};
         valores = leValores (nomeVal);
         int idade = this.retornaInteiro(valores[1]);
-        Gato gato = new Gato (valores[0],idade,valores[2], valores[3]);
+        Gato gato = new Gato (valores[0], idade, valores[2], valores[3], valores[4]);
         return gato;
     }
-    public Cachorro leCao (){
+    public Cachorro leCao() {
         String [] valores = new String [4];
-        String [] nomeVal = {"Nome", "Idade", "Dono", "Sexo"};
+        String [] nomeVal = {"Nome", "Idade", "Dono", "Raça", "Sexo"};
         valores = leValores (nomeVal);
         int idade = this.retornaInteiro(valores[1]);
-        Cachorro cao = new Cachorro (valores[0],idade,valores[2], valores[3]);
+        Cachorro cao = new Cachorro (valores[0], idade, valores[2], valores[3], valores[4]);
         return cao;
+    }
+    public Coelho leCoelho() {
+        String [] valores = new String [4];
+        String [] nomeVal = {"Nome", "Idade", "Dono", "Raça", "Sexo"};
+        valores = leValores (nomeVal);
+        int idade = this.retornaInteiro(valores[1]);
+        Coelho coelho = new Coelho (valores[0], idade, valores[2], valores[3], valores[4]);
+        return coelho;
     }
     private boolean intValido(String s) {
         try {
@@ -46,7 +54,7 @@ public class PetStore {
     public int retornaInteiro(String entrada) {
 	int numInt;
         while (!this.intValido(entrada)) {
-            entrada = JOptionPane.showInputDialog(null, "Erro!!\n\nDigite um número inteiro.");
+            entrada = JOptionPane.showInputDialog(null, "Erro! Digite um número inteiro.");
         }
         return Integer.parseInt(entrada);
     }
@@ -58,7 +66,7 @@ public class PetStore {
             for (int i=0; i < mamiferos.size(); i++)
                 outputStream.writeObject(mamiferos.get(i));
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null,"Erro! Impossível criar o arquivo!");
+            JOptionPane.showMessageDialog(null,"Erro! Impossível criar o arquivo.");
         } catch (IOException ex) {
         } finally {
             try {
@@ -87,7 +95,7 @@ public class PetStore {
             System.out.println("Fim de arquivo.");
         } catch (ClassNotFoundException ex) {
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null,"Erro! Arquivo inexistente!");
+            JOptionPane.showMessageDialog(null,"Erro! Arquivo inexistente.");
         } catch (IOException ex) {
         } finally {
             try {
@@ -102,75 +110,74 @@ public class PetStore {
     public void menuPetStore (){
         String menu = "";
 	String entrada;
-	int opc1, opc2;
+	int opc1, opc2, opc3;
         do {
             menu = """
-                   CL\u00cdNICA VETERIN\u00c1RIA - Animais de Pequeno Porte
-                   Op\u00e7\u00f5es:
+                   CLINIVET - CLÍNICA VETERINÁRIA
+                         Animais de Pequeno Porte
                    1. Entrar com os animais
                    2. Exibir animais
                    3. Limpar animais
                    4. Gravar animais
                    5. Recuperar animais
-                   9. Sair""";
+                   6. Sair""";
             entrada = JOptionPane.showInputDialog (menu + "\n\n");
             opc1 = this.retornaInteiro(entrada);
             switch (opc1) {
-                case 1:
+                case 1 -> {
                     menu = """
                            Entrada de Animais de Pequeno Porte
-                           Op\u00e7\u00f5es:
                            1. Cachorro
                            2. Gato
+                           3. Coelho
                            """;
                     entrada = JOptionPane.showInputDialog (menu + "\n\n");
                     opc2 = this.retornaInteiro(entrada);
                     switch (opc2){
                         case 1 -> mamiferos.add((PequenoPorte)leCao());
                         case 2 -> mamiferos.add((PequenoPorte)leGato());
-                        default -> JOptionPane.showMessageDialog(null,"Erro! Animal de pequeno porte não escolhido.");
+                        case 3 -> mamiferos.add((PequenoPorte)leCoelho());
+                        default -> JOptionPane.showMessageDialog(null,"Erro! Animal não escolhido.");
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     if (mamiferos.isEmpty()) {
-			JOptionPane.showMessageDialog(null,"Erro! Entre com os animais de pequeno porte.");
-			break;
+                        JOptionPane.showMessageDialog(null,"Erro! Entre com pelo menos 1 animal.");
+                        break;
                     }
                     String dados = "";
                     for (int i=0; i < mamiferos.size(); i++)	{
                         dados += mamiferos.get(i).toString() + "---------------\n";
                     }
                     JOptionPane.showMessageDialog(null,dados);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     if (mamiferos.isEmpty()) {
-			JOptionPane.showMessageDialog(null,"Erro! Entre com os animais de pequeno porte.");
-			break;
+                        JOptionPane.showMessageDialog(null,"Erro! Entre com pelo menos 1 animal.");
+                        break;
                     }
                     mamiferos.clear();
-                    JOptionPane.showMessageDialog(null,"Dados limpos com sucesso!");
-                    break;
-                case 4:
+                    JOptionPane.showMessageDialog(null,"Dados excluídos com sucesso!");
+                }
+                case 4 -> {
                     if (mamiferos.isEmpty()) {
-                    JOptionPane.showMessageDialog(null,"Erro! Entre com os animais de pequeno porte.");
-                    break;
+                        JOptionPane.showMessageDialog(null,"Erro! Entre com pelo menos o animal.");
+                        break;
                     }
                     salvaMamiferos(mamiferos);
                     JOptionPane.showMessageDialog(null,"Dados salvos com sucesso!");
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     mamiferos = recuperaMamiferos();
                     if (mamiferos.isEmpty()) {
                         JOptionPane.showMessageDialog(null,"Sem dados para apresentar.");
                         break;
                     }
                     JOptionPane.showMessageDialog(null,"Dados recuperados com sucesso!");
-                    break;
-                case 9:
-                    JOptionPane.showMessageDialog(null,"Obrigado por utilizar o aplicativo!");
-                    break;
+                }
+                case 6 -> JOptionPane.showMessageDialog(null,"Obrigado por utilizar o aplicativo!");
             }
-        } while (opc1 != 9);
+        } while (opc1 != 6);
     }
     public static void main (String [] args){
         PetStore pet = new PetStore ();

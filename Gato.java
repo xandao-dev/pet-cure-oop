@@ -6,10 +6,9 @@ public class Gato extends PequenoPorte {
     public String soar() {
         return "Mia!";
     }
-    public Gato(String nome, int idade, String dono, String sexo) {
-        super(nome, idade, dono);
+    public Gato(String nome, int idade, String dono, String raca, String sexo) {
+        super(nome, idade, dono, raca, sexo);
         this.sexo = sexo;
-        this.raca = "Persa";
     }
     @Override
     public String getSexo() {

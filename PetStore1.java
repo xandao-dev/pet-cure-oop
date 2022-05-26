@@ -24,13 +24,13 @@ public class PetStore1 {
     public void excluirAnimal(PequenoPorte mani) {
 	if (this.mamiferos.contains(mani)) {
             this.mamiferos.remove(mani);
-            System.out.println("[Animal " + mani.toString() + "excluido com sucesso!]\n");
+            System.out.println("[Animal " + mani.toString() + "excluído com sucesso!]\n");
         } else
             System.out.println("Animal inexistente!\n");
     }
     public void excluirAnimais() {
 	mamiferos.clear();
-	System.out.println("Animais excluidos com sucesso!\n");
+	System.out.println("Animais excluídos com sucesso!\n");
     }
     public void gravarAnimais()  {
 	ObjectOutputStream outputStream = null;
@@ -76,18 +76,22 @@ public class PetStore1 {
         }
     }
     public static void main(String[] args) {
-        PetStore1 pet  = new PetStore1();
-	Gato felix    = new Gato("Felix",    3, "Maria", "F");
-	Gato garfield = new Gato("Garfield", 7, "Maria", "M");
-	Cachorro  rex      = new Cachorro ("Rex",  2, "Jose", "F");
-	Cachorro  toto     = new Cachorro ("Toto", 5, "Jose", "M");
-	pet.adicionaAnimal(felix);
-	pet.adicionaAnimal(garfield);
-	pet.adicionaAnimal(rex);
-	pet.adicionaAnimal(toto);
+        PetStore1 pet = new PetStore1();
+	Gato mingau = new Gato("Mingau", 3, "Maria", "Persa", "F");
+	Gato mimi = new Gato("Mimi", 7, "Joana", "Angorá", "M");
+	Cachorro brisca = new Cachorro ("Brisca", 2, "José", "Pastor", "F");
+	Cachorro pepper = new Cachorro ("Pepper", 5, "Mario", "Husky", "M");
+        Coelho flocos = new Coelho ("Flocos", 4, "Pedro", "Lebre", "M");
+        Coelho black = new Coelho ("Black", 2, "João", "Mini", "F");
+	pet.adicionaAnimal(mingau);
+	pet.adicionaAnimal(mimi);
+	pet.adicionaAnimal(brisca);
+	pet.adicionaAnimal(pepper);
+        pet.adicionaAnimal(flocos);
+        pet.adicionaAnimal(black);
 	pet.listarAnimais();
 	pet.gravarAnimais();
-	pet.excluirAnimal(garfield);
+	pet.excluirAnimal(mingau);
 	pet.listarAnimais();
 	pet.excluirAnimais();
 	pet.listarAnimais();

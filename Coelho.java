@@ -1,12 +1,12 @@
 package PetStore;
-public class Cachorro extends PequenoPorte {
+public class Coelho extends PequenoPorte {
     private static final long serialVersionUID = 1L;
     private String sexo;
     @Override
     public String soar() {
-        return "Late!";
+        return "Chia!";
     }
-    public Cachorro(String nome, int idade, String dono, String raca, String sexo) {
+    public Coelho(String nome, int idade, String dono, String raca, String sexo) {
         super(nome, idade, dono, raca, sexo);
         this.sexo = sexo;
     }
@@ -17,5 +17,5 @@ public class Cachorro extends PequenoPorte {
     @Override
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
+    } 
 }
