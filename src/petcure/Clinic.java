@@ -21,6 +21,10 @@ public class Clinic {
 		this.customers = new ArrayList<>();
 	}
 
+	public void printClinic() {
+		System.out.println("Clinic: " + this.name + " - " + this.phone);
+	}
+
 	public void addCustomer() {
 		// Data incoming from view
 		String[] customerData = { "Alexandre", "(62) 9 9999-9999" };
@@ -119,20 +123,21 @@ public class Clinic {
 
 	public static void main(String[] args) {
 		Clinic petCure = new Clinic("PetCure", "(00) 12345-6789");
+		petCure.printClinic();
+
+		petCure.addCustomer();
+		for (Customer c : petCure.getCustomers()) {
+			System.out.println(c.toString());
+		}
+		System.out.println("----\n");
+
+		petCure.addCustomer();
+		for (Customer c : petCure.getCustomers()) {
+			System.out.println(c.toString());
+		}
+		System.out.println("----\n");
+
 		ArrayList<Customer> customers = petCure.getCustomers();
-
-		petCure.addCustomer();
-		for (Customer c : petCure.getCustomers()) {
-			System.out.println(c.toString());
-		}
-		System.out.println("----\n");
-
-		petCure.addCustomer();
-		for (Customer c : petCure.getCustomers()) {
-			System.out.println(c.toString());
-		}
-		System.out.println("----\n");
-
 		ArrayList<Customer> customersToRemove = new ArrayList<Customer>() {
 			{
 				add(customers.get(0));
