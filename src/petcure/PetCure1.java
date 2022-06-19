@@ -9,10 +9,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class PetStore1 {
+public class PetCure1 {
 	private final ArrayList<PequenoPorte> mamiferos;
 
-	public PetStore1() {
+	public PetCure1() {
 		this.mamiferos = new ArrayList<>();
 	}
 
@@ -84,9 +84,9 @@ public class PetStore1 {
 			}
 		}
 	}
-
+	/*
 	public static void main(String[] args) {
-		PetStore1 pet = new PetStore1();
+		PetCure1 pet = new PetCure1();
 		Gato mingau = new Gato("Mingau", 3, "Maria", "Persa", "F");
 		Gato mimi = new Gato("Mimi", 7, "Joana", "Angorá", "M");
 		Cachorro brisca = new Cachorro("Brisca", 2, "José", "Pastor", "F");
@@ -108,4 +108,5 @@ public class PetStore1 {
 		pet.recuperarAnimais();
 		pet.listarAnimais();
 	}
+	*/
 }

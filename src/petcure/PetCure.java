@@ -10,10 +10,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class PetStore {
+public class PetCure {
 	private ArrayList<PequenoPorte> mamiferos;
 
-	public PetStore() {
+	public PetCure() {
 		this.mamiferos = new ArrayList<>();
 	}
 
@@ -190,8 +190,10 @@ public class PetStore {
 		} while (opc1 != 6);
 	}
 
-	public static void main(String[] args) {
-		PetStore pet = new PetStore();
-		pet.menuPetStore();
-	}
+	/*
+	 * public static void main(String[] args) {
+	 * PetStore pet = new PetStore();
+	 * pet.menuPetStore();
+	 * }
+	 */
 }
