@@ -1,10 +1,8 @@
 package com.petcure.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CustomerModel extends PersonModel implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class CustomerModel extends PersonModel {
 	private int debt = 0;
 	private ArrayList<AnimalModel> pets = new ArrayList<>();
 
