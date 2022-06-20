@@ -12,6 +12,10 @@ public class AnimalModel implements Serializable {
 
 	@Override
 	public String toString() {
-		return name;
+		return this.name;
+	}
+
+	public String getName() {
+		return this.name;
 	}
 }
