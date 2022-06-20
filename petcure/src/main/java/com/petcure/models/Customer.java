@@ -1,6 +1,7 @@
-package petcure;
+package com.petcure.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Customer extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;

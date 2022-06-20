@@ -1,4 +1,4 @@
-package petcure;
+package com.petcure.models;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class Clinic {
 	private String name;

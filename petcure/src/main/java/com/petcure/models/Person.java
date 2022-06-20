@@ -1,4 +1,4 @@
-package petcure;
+package com.petcure.models;
 
 public class Person {
 	private String name;

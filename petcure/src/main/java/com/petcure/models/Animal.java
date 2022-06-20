@@ -1,4 +1,4 @@
-package petcure;
+package com.petcure.models;
 
 import java.io.Serializable;
 
