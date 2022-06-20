@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="400.0" maxWidth="640.0" minHeight="400.0" minWidth="640.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.petcure.controllers.ClinicController">
+<children>
+      <ImageView fitHeight="107.0" fitWidth="86.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../assets/dog1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="151.0" layoutX="489.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../assets/dog2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="244.0" layoutY="20.0" text="PetCure" textAlignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <VBox layoutX="50.0" layoutY="75.0" prefWidth="215.0" spacing="15.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="15.0" prefWidth="215.0" text="Ações Básicas" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="showClinicInfoBtn" mnemonicParsing="false" onAction="#showClinicInfo" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Mostrar dados da clínica" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="showClientsBtn" mnemonicParsing="false" onAction="#showClients" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Mostrar clientes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addSampleCustomersBtn" mnemonicParsing="false" onAction="#addSampleCustomers" prefHeight="26.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Adicionar exemplos" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addClientBtn" mnemonicParsing="false" onAction="#addClient" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Adicionar cliente" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="removeClientBtn" mnemonicParsing="false" onAction="#removeClient" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: ef476f;" text="Remover clientes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="375.0" layoutY="75.0" prefWidth="215.0" spacing="15.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="15.0" prefWidth="215.0" text="Persistência">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Salvar clientes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Carregar clientes" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+</children>
+</AnchorPane>
