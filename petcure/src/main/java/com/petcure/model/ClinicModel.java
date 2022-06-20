@@ -66,28 +66,7 @@ public class ClinicModel {
 		return this.customers;
 	}
 
-	public void saveCustomers(ArrayList<CustomerModel> customers) {
-		/*
-		 * ObjectOutputStream outputStream = null;
-		 * try {
-		 * outputStream = new ObjectOutputStream(new
-		 * FileOutputStream("c:\\temp\\petStore.dados"));
-		 * for (int i = 0; i < mamiferos.size(); i++)
-		 * outputStream.writeObject(mamiferos.get(i));
-		 * } catch (FileNotFoundException ex) {
-		 * JOptionPane.showMessageDialog(null, "Erro! Impossível criar o arquivo.");
-		 * } catch (IOException ex) {
-		 * } finally {
-		 * try {
-		 * if (outputStream != null) {
-		 * outputStream.flush();
-		 * outputStream.close();
-		 * }
-		 * } catch (IOException ex) {
-		 * }
-		 * }
-		 */
-
+	public void storeCustomers(ArrayList<CustomerModel> customers) {
 		try {
 			FileOutputStream fos = new FileOutputStream("customers.dat");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -100,40 +79,11 @@ public class ClinicModel {
 		}
 	}
 
-	public ArrayList<CustomerModel> loadCustomers() {
-		/*
-		 * ArrayList<PequenoPorte> mamiferosTemp = new ArrayList<>();
-		 * ObjectInputStream inputStream = null;
-		 * try {
-		 * inputStream = new ObjectInputStream(new
-		 * FileInputStream("c:\\temp\\petStore.dados"));
-		 * Object obj = null;
-		 * while ((obj = inputStream.readObject()) != null) {
-		 * if (obj instanceof PequenoPorte) {
-		 * mamiferosTemp.add((PequenoPorte) obj);
-		 * }
-		 * }
-		 * } catch (EOFException ex) {
-		 * System.out.println("Fim de arquivo.");
-		 * } catch (ClassNotFoundException ex) {
-		 * } catch (FileNotFoundException ex) {
-		 * JOptionPane.showMessageDialog(null, "Erro! Arquivo inexistente.");
-		 * } catch (IOException ex) {
-		 * } finally {
-		 * try {
-		 * if (inputStream != null) {
-		 * inputStream.close();
-		 * }
-		 * } catch (final IOException ex) {
-		 * }
-		 * return mamiferosTemp;
-		 * }
-		 */
-		ArrayList<CustomerModel> customers = new ArrayList<>();
+	public void loadCustomers() {
 		try {
 			FileInputStream fis = new FileInputStream("customers.dat");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			customers = (ArrayList<CustomerModel>) ois.readObject();
+			this.customers = (ArrayList<CustomerModel>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -142,7 +92,6 @@ public class ClinicModel {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return customers;
 	}
 
 	@Override

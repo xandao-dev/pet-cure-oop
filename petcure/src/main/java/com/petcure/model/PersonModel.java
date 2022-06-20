@@ -1,6 +1,8 @@
 package com.petcure.model;
 
-public class PersonModel {
+import java.io.Serializable;
+
+public class PersonModel implements Serializable {
 	private String name;
 	private String phone;
 
