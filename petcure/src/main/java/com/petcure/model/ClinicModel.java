@@ -8,28 +8,40 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import com.github.javafaker.Faker;
 
 public class ClinicModel {
 	private String name;
 	private String phone;
 	private ArrayList<CustomerModel> customers;
+	private Faker faker;
 
 	public ClinicModel() {
+		this.faker = new Faker();
 		this.name = "PetCure";
-		this.phone = "(00) 00000-0000";
-		customers = new ArrayList<CustomerModel>();
+		this.phone = this.faker.phoneNumber().cellPhone();
+		this.customers = new ArrayList<CustomerModel>();
+	}
+
+	public ClinicModel(String name) {
+		this.faker = new Faker();
+		this.name = name;
+		this.phone = this.faker.phoneNumber().cellPhone();
+		this.customers = new ArrayList<CustomerModel>();
 	}
 
 	public ClinicModel(String name, String phone) {
+		this.faker = new Faker();
 		this.name = name;
 		this.phone = phone;
 		this.customers = new ArrayList<>();
+
 	}
 
-	public void addSampleCustomers() {
-		this.customers.add(new CustomerModel("John", "123456789"));
-		this.customers.add(new CustomerModel("Jane", "123456789"));
-		this.customers.add(new CustomerModel("Jack", "123456789"));
+	public void addSampleCustomer() {
+		String name = faker.name().fullName();
+		String phone = faker.phoneNumber().cellPhone();
+		this.customers.add(new CustomerModel(name, phone));
 	}
 
 	public void addCustomer() {
