@@ -122,7 +122,9 @@ public class ClinicController {
 
 	@FXML
 	void menuRemoveCustomers(ActionEvent event) {
-
+		ArrayList<CustomerModel> customers = clinicModel.getCustomers();
+		clinicModel.removeCustomers(customers);
+		// Set message OK
 	}
 
 	@FXML
