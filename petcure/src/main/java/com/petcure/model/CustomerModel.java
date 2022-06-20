@@ -26,10 +26,13 @@ public class CustomerModel extends PersonModel {
 		return pets;
 	}
 
-	public void addPet() {
-		// Data incoming from view
-		String[] petData = { "Xandim" };
-		AnimalModel pet = new AnimalModel(petData[0]);
+	public void addDog(String name, int weight, String breed) {
+		AnimalModel pet = new DogModel(name, weight, breed);
+		this.pets.add(pet);
+	}
+
+	public void addCat(String name, int weight, boolean isWild) {
+		AnimalModel pet = new CatModel(name, weight, isWild);
 		this.pets.add(pet);
 	}
 

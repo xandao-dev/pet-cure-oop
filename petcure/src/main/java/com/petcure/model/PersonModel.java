@@ -2,7 +2,7 @@ package com.petcure.model;
 
 import java.io.Serializable;
 
-public class PersonModel implements Serializable {
+public abstract class PersonModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String phone;
