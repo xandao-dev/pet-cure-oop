@@ -44,10 +44,9 @@ public class ClinicModel {
 		this.customers.add(new CustomerModel(name, phone));
 	}
 
-	public void addCustomer() {
-		// Data incoming from view
-		String[] customerData = { "Alexandre", "123456789" };
-		CustomerModel customer = new CustomerModel(customerData[0], customerData[1]);
+	public void addCustomer(String name, String phone, int debt) {
+		CustomerModel customer = new CustomerModel(name, phone);
+		customer.setDebt(debt);
 		this.customers.add(customer);
 	}
 
@@ -143,8 +142,8 @@ public class ClinicModel {
 	@Override
 	public String toString() {
 		String info = "";
-		info += "Clinic name: " + this.name + "\n";
-		info += "Clinic phone: " + this.phone;
+		info += "Nome: " + this.name + "\n";
+		info += "Telefone: " + this.phone;
 		return info;
 	}
 }

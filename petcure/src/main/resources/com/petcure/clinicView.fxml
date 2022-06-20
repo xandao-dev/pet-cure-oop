@@ -36,7 +36,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="showClinicInfoBtn" mnemonicParsing="false" onAction="#showClinicInfo" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Mostrar dados da clínica" textFill="WHITE">
+                  <Button fx:id="showClinicInfoBtn" mnemonicParsing="false" onAction="#menuShowClinicInfo" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Mostrar dados da clínica" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="showClientsBtn" mnemonicParsing="false" onAction="#showClients" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Mostrar clientes" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#menuShowCustomers" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Mostrar clientes" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="addSampleCustomerBtn" mnemonicParsing="false" onAction="#addSampleCustomer" prefHeight="26.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Adicionar aleatório" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#menuAddSampleCustomer" prefHeight="26.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Adicionar aleatório" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -60,7 +60,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="addClientBtn" mnemonicParsing="false" onAction="#addClient" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Adicionar cliente" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#menuAddCustomer" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Adicionar cliente" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -68,7 +68,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="removeClientBtn" mnemonicParsing="false" onAction="#removeClient" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: ef476f;" text="Remover clientes" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#menuRemoveCustomers" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: ef476f;" text="Remover clientes" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -85,7 +85,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Salvar clientes" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#menuStoreCustomers" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Salvar clientes" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -93,7 +93,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Carregar clientes" textAlignment="CENTER" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#menuLoadCustomers" prefHeight="25.0" prefWidth="215.0" style="-fx-background-color: #40916c;" text="Carregar clientes" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -121,31 +121,75 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="clientListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="customerListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="50.0" layoutY="75.0" text="Clientes:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TreeView fx:id="clientsTree" layoutX="50.0" layoutY="110.0" prefHeight="215.0" prefWidth="540.0" />
+            <TreeView fx:id="customersTree" layoutX="50.0" layoutY="110.0" prefHeight="215.0" prefWidth="540.0" />
             <Button layoutX="260.0" layoutY="350.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #40916c;" text="Voltar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="clientCreationPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" visible="false">
+      <AnchorPane fx:id="customerCreationPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" visible="false">
          <children>
             <Label layoutX="50.0" layoutY="75.0" text="Cadastro de Cliente:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
+            <Button layoutX="396.0" layoutY="356.0" mnemonicParsing="false" onAction="#customerCreationSave" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #40916c;" text="Salvar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="260.0" layoutY="356.0" mnemonicParsing="false" onAction="#customerCreationCancel" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #ef476f;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <VBox layoutX="50.0" layoutY="121.0" spacing="15.0">
+               <children>
+                  <Group>
+                     <children>
+                        <TextField fx:id="customerCreationNameInput" layoutX="50.0" layoutY="136.0" prefHeight="25.0" prefWidth="215.0" />
+                        <Label layoutX="50.0" layoutY="121.0" text="Nome:" />
+                     </children>
+                  </Group>
+                  <Group>
+                     <children>
+                        <TextField fx:id="customerCreationPhoneInput" layoutX="50.0" layoutY="188.0" prefHeight="25.0" prefWidth="215.0" />
+                        <Label layoutX="50.0" layoutY="173.0" text="Celular:" />
+                     </children>
+                  </Group>
+                  <Group>
+                     <children>
+                        <Label layoutX="50.0" layoutY="228.0" text="Dívida:" />
+                        <TextField fx:id="customerCreationDebtInput" layoutX="50.0" layoutY="243.0" prefHeight="25.0" prefWidth="215.0" />
+                     </children>
+                  </Group>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
 </children>
