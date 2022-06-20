@@ -5,9 +5,6 @@ import com.petcure.model.ClinicModel;
 import com.petcure.model.CustomerModel;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -129,12 +126,15 @@ public class ClinicController {
 
 	@FXML
 	void menuStoreCustomers(ActionEvent event) {
-
+		ArrayList<CustomerModel> customers = clinicModel.getCustomers();
+		clinicModel.storeCustomers(customers);
+		// Set message OK
 	}
 
 	@FXML
 	void menuLoadCustomers(ActionEvent event) {
-
+		clinicModel.loadCustomers();
+		// Set message OK
 	}
 
 	@FXML
