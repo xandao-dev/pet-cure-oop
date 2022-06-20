@@ -25,9 +25,15 @@ public class Clinic {
 		System.out.println("Clinic: " + this.name + " - " + this.phone);
 	}
 
+	public void addSampleCustomers() {
+		this.customers.add(new Customer("John", "123456789"));
+		this.customers.add(new Customer("Jane", "123456789"));
+		this.customers.add(new Customer("Jack", "123456789"));
+	}
+
 	public void addCustomer() {
 		// Data incoming from view
-		String[] customerData = { "Alexandre", "(62) 9 9999-9999" };
+		String[] customerData = { "Alexandre", "123456789" };
 		Customer customer = new Customer(customerData[0], customerData[1]);
 		this.customers.add(customer);
 	}
