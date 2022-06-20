@@ -1,4 +1,4 @@
-package com.petcure.models;
+package com.petcure.model;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -9,45 +9,47 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Clinic {
+public class ClinicModel {
 	private String name;
 	private String phone;
-	private ArrayList<Customer> customers;
+	private ArrayList<CustomerModel> customers;
 
-	public Clinic(String name, String phone) {
+	public ClinicModel() {
+		this.name = "PetCure";
+		this.phone = "(00) 00000-0000";
+		customers = new ArrayList<CustomerModel>();
+	}
+
+	public ClinicModel(String name, String phone) {
 		this.name = name;
 		this.phone = phone;
 		this.customers = new ArrayList<>();
 	}
 
-	public void printClinic() {
-		System.out.println("Clinic: " + this.name + " - " + this.phone);
-	}
-
 	public void addSampleCustomers() {
-		this.customers.add(new Customer("John", "123456789"));
-		this.customers.add(new Customer("Jane", "123456789"));
-		this.customers.add(new Customer("Jack", "123456789"));
+		this.customers.add(new CustomerModel("John", "123456789"));
+		this.customers.add(new CustomerModel("Jane", "123456789"));
+		this.customers.add(new CustomerModel("Jack", "123456789"));
 	}
 
 	public void addCustomer() {
 		// Data incoming from view
 		String[] customerData = { "Alexandre", "123456789" };
-		Customer customer = new Customer(customerData[0], customerData[1]);
+		CustomerModel customer = new CustomerModel(customerData[0], customerData[1]);
 		this.customers.add(customer);
 	}
 
-	public void removeCustomers(ArrayList<Customer> customers) {
-		for (Customer customer : customers) {
+	public void removeCustomers(ArrayList<CustomerModel> customers) {
+		for (CustomerModel customer : customers) {
 			this.customers.remove(customer);
 		}
 	}
 
-	public ArrayList<Customer> getCustomers() {
+	public ArrayList<CustomerModel> getCustomers() {
 		return this.customers;
 	}
 
-	public void saveCustomers(ArrayList<Customer> customers) {
+	public void saveCustomers(ArrayList<CustomerModel> customers) {
 		/*
 		 * ObjectOutputStream outputStream = null;
 		 * try {
@@ -81,7 +83,7 @@ public class Clinic {
 		}
 	}
 
-	public ArrayList<Customer> loadCustomers() {
+	public ArrayList<CustomerModel> loadCustomers() {
 		/*
 		 * ArrayList<PequenoPorte> mamiferosTemp = new ArrayList<>();
 		 * ObjectInputStream inputStream = null;
@@ -110,11 +112,11 @@ public class Clinic {
 		 * return mamiferosTemp;
 		 * }
 		 */
-		ArrayList<Customer> customers = new ArrayList<>();
+		ArrayList<CustomerModel> customers = new ArrayList<>();
 		try {
 			FileInputStream fis = new FileInputStream("customers.dat");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			customers = (ArrayList<Customer>) ois.readObject();
+			customers = (ArrayList<CustomerModel>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -126,38 +128,11 @@ public class Clinic {
 		return customers;
 	}
 
-	public static void main(String[] args) {
-		Clinic petCure = new Clinic("PetCure", "(00) 12345-6789");
-		petCure.printClinic();
-
-		petCure.addCustomer();
-		for (Customer c : petCure.getCustomers()) {
-			System.out.println(c.toString());
-		}
-		System.out.println("----\n");
-
-		petCure.addCustomer();
-		for (Customer c : petCure.getCustomers()) {
-			System.out.println(c.toString());
-		}
-		System.out.println("----\n");
-
-		ArrayList<Customer> customers = petCure.getCustomers();
-		ArrayList<Customer> customersToRemove = new ArrayList<Customer>() {
-			{
-				add(customers.get(0));
-			}
-		};
-		petCure.removeCustomers(customersToRemove);
-		for (Customer c : petCure.getCustomers()) {
-			System.out.println(c.toString());
-		}
-		System.out.println("----\n");
-
-		petCure.saveCustomers(customers);
-		ArrayList<Customer> loadedCustomers = petCure.loadCustomers();
-		for (Customer c : loadedCustomers) {
-			System.out.println(c.toString());
-		}
+	@Override
+	public String toString() {
+		String info = "";
+		info += "Clinic name: " + this.name + "\n";
+		info += "Clinic phone: " + this.phone;
+		return info;
 	}
 }

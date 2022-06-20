@@ -1,12 +1,12 @@
-package com.petcure.models;
+package com.petcure.model;
 
 import java.io.Serializable;
 
-public class Animal implements Serializable {
+public class AnimalModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 
-	public Animal(String name) {
+	public AnimalModel(String name) {
 		this.name = name;
 	}
 

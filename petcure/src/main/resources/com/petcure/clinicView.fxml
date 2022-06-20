@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="400.0" maxWidth="640.0" minHeight="400.0" minWidth="640.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.petcure.controllers.ClinicController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.petcure.controller.ClinicController">
 <children>
       <ImageView fitHeight="107.0" fitWidth="86.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -101,5 +101,6 @@
             </Button>
          </children>
       </VBox>
+      <Label fx:id="clinicInfoLabel" layoutX="280.0" layoutY="331.0" />
 </children>
 </AnchorPane>

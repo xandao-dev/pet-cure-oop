@@ -1,18 +1,18 @@
-package com.petcure.models;
+package com.petcure.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer extends Person implements Serializable {
+public class CustomerModel extends PersonModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int debt = 0;
-	private ArrayList<Animal> pets = new ArrayList<>();
+	private ArrayList<AnimalModel> pets = new ArrayList<>();
 
-	public Customer(String name) {
+	public CustomerModel(String name) {
 		super(name);
 	}
 
-	public Customer(String name, String phone) {
+	public CustomerModel(String name, String phone) {
 		super(name, phone);
 	}
 
@@ -24,14 +24,14 @@ public class Customer extends Person implements Serializable {
 		this.debt = debt;
 	}
 
-	public ArrayList<Animal> getPets() {
+	public ArrayList<AnimalModel> getPets() {
 		return pets;
 	}
 
 	public void addPet() {
 		// Data incoming from view
 		String[] petData = { "Xandim" };
-		Animal pet = new Animal(petData[0]);
+		AnimalModel pet = new AnimalModel(petData[0]);
 		this.pets.add(pet);
 	}
 

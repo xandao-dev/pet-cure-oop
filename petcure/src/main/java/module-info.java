@@ -4,8 +4,8 @@ module com.petcure {
 	requires javafx.fxml;
 
 	opens com.petcure to javafx.fxml;
-	opens com.petcure.controllers to javafx.fxml;
+	opens com.petcure.controller to javafx.fxml;
 
 	exports com.petcure;
-	exports com.petcure.controllers;
+	exports com.petcure.controller;
 }
