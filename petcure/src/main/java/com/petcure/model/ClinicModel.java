@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import com.github.javafaker.Faker;
 
 public class ClinicModel {
@@ -17,21 +19,21 @@ public class ClinicModel {
 	private Faker faker;
 
 	public ClinicModel() {
-		this.faker = new Faker();
+		this.faker = new Faker(new Locale("pt-BR"));
 		this.name = "PetCure";
 		this.phone = this.faker.phoneNumber().cellPhone();
 		this.customers = new ArrayList<CustomerModel>();
 	}
 
 	public ClinicModel(String name) {
-		this.faker = new Faker();
+		this.faker = new Faker(new Locale("pt-BR"));
 		this.name = name;
 		this.phone = this.faker.phoneNumber().cellPhone();
 		this.customers = new ArrayList<CustomerModel>();
 	}
 
 	public ClinicModel(String name, String phone) {
-		this.faker = new Faker();
+		this.faker = new Faker(new Locale("pt-BR"));
 		this.name = name;
 		this.phone = phone;
 		this.customers = new ArrayList<>();
@@ -41,7 +43,13 @@ public class ClinicModel {
 	public void addSampleCustomer() {
 		String name = faker.name().fullName();
 		String phone = faker.phoneNumber().cellPhone();
-		this.customers.add(new CustomerModel(name, phone));
+		CustomerModel customer = new CustomerModel(name, phone);
+		int debt = faker.number().numberBetween(0, 2000);
+		if (debt > 1000) {
+			debt = 0; // 50% zero
+		}
+		customer.setDebt(debt);
+		this.customers.add(customer);
 	}
 
 	public void addCustomer(String name, String phone, int debt) {
@@ -51,9 +59,7 @@ public class ClinicModel {
 	}
 
 	public void removeCustomers(ArrayList<CustomerModel> customers) {
-		for (CustomerModel customer : customers) {
-			this.customers.remove(customer);
-		}
+		this.customers.removeAll(customers);
 	}
 
 	public ArrayList<CustomerModel> getCustomers() {
