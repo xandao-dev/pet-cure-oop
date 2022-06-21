@@ -3,6 +3,9 @@ package com.petcure.controller;
 import com.petcure.model.AnimalModel;
 import com.petcure.model.ClinicModel;
 import com.petcure.model.CustomerModel;
+import com.petcure.model.DogModel;
+import com.petcure.model.CatModel;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -162,16 +165,26 @@ public class ClinicController {
 			String debtString = "Dívida: R$" + debt;
 			TreeItem<String> debtItem = new TreeItem<String>(debtString);
 
+			TreeItem<String> petsItem = new TreeItem<String>("Pets");
 			ArrayList<AnimalModel> pets = customer.getPets();
-			String petsString = "Pets: ";
 			for (AnimalModel pet : pets) {
-				if (pets.indexOf(pet) == pets.size() - 1) {
-					petsString += pet.getName();
+				boolean isDog = pet instanceof DogModel;
+				String petString = isDog ? "Cão: " : "Gato: ";
+				TreeItem<String> petNameItem = new TreeItem<String>(petString + pet.getName());
+				TreeItem<String> petWeightItem = new TreeItem<String>("Peso: " + pet.getWeight() + "kg");
+
+				petsItem.getChildren().add(petNameItem);
+
+				petNameItem.getChildren().add(petWeightItem);
+				if (isDog) {
+					TreeItem<String> dogBreedItem = new TreeItem<String>("Raça: " + ((DogModel) pet).getBreed());
+					petNameItem.getChildren().add(dogBreedItem);
 				} else {
-					petsString += pet.getName() + ", ";
+					String isWild = ((CatModel) pet).isWild() ? "Sim" : "Não";
+					TreeItem<String> catWildItem = new TreeItem<String>("É Selvagem: " + isWild);
+					petNameItem.getChildren().add(catWildItem);
 				}
 			}
-			TreeItem<String> petsItem = new TreeItem<String>(petsString);
 
 			nameItem.getChildren().add(phoneItem);
 			nameItem.getChildren().add(debtItem);
@@ -190,8 +203,8 @@ public class ClinicController {
 		int numOfPets = faker.number().numberBetween(0, 5);
 
 		for (int i = 0; i < numOfPets; i++) {
-			int catOrDog = faker.number().numberBetween(0, 1);
-			if (catOrDog == 0) {
+			boolean isCat = faker.bool().bool();
+			if (isCat) {
 				String name = faker.cat().name();
 				int weight = faker.number().numberBetween(1, 20);
 				boolean wild = faker.bool().bool();
