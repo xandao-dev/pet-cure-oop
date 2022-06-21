@@ -45,6 +45,9 @@ public class ClinicController {
 	private VBox catCreationBox;
 
 	@FXML
+	private Label menuFeedbackLabel;
+
+	@FXML
 	private Label clinicInfoLabel;
 
 	@FXML
@@ -91,6 +94,10 @@ public class ClinicController {
 		petCreationPane.setVisible(false);
 
 		pane.setVisible(true);
+	}
+
+	private void setMenuFeedbackMessage(String message) {
+		menuFeedbackLabel.setText(message);
 	}
 
 	private void clearCustomerCreationInputs() {
@@ -196,7 +203,8 @@ public class ClinicController {
 				customer.addDog(name, weight, breed);
 			}
 		}
-		// Set message OK
+
+		setMenuFeedbackMessage("Cliente adicionado com sucesso!");
 	}
 
 	@FXML
@@ -208,20 +216,20 @@ public class ClinicController {
 	void menuRemoveCustomers(ActionEvent event) {
 		ArrayList<CustomerModel> customers = clinicModel.getCustomers();
 		clinicModel.removeCustomers(customers);
-		// Set message OK
+		setMenuFeedbackMessage("Clientes removidos com sucesso!");
 	}
 
 	@FXML
 	void menuStoreCustomers(ActionEvent event) {
 		ArrayList<CustomerModel> customers = clinicModel.getCustomers();
 		clinicModel.storeCustomers(customers);
-		// Set message OK
+		setMenuFeedbackMessage("Clientes armazenados com sucesso!");
 	}
 
 	@FXML
 	void menuLoadCustomers(ActionEvent event) {
 		clinicModel.loadCustomers();
-		// Set message OK
+		setMenuFeedbackMessage("Clientes carregados com sucesso!");
 	}
 
 	@FXML
@@ -237,6 +245,7 @@ public class ClinicController {
 	@FXML
 	void customerCreationCancel(ActionEvent event) {
 		clearCustomerCreationInputs();
+		setMenuFeedbackMessage("Criação de usuário cancelada!");
 		setActivePane(menuPane);
 	}
 
@@ -267,6 +276,7 @@ public class ClinicController {
 
 		clearPetCreationInputs();
 		setActivePetCreationBox(null);
+		setMenuFeedbackMessage("Criação de usuário e pets cancelados!");
 		setActivePane(menuPane);
 	}
 
@@ -284,11 +294,13 @@ public class ClinicController {
 		lastAnimalsAdded.clear();
 		clearPetCreationInputs();
 		setActivePetCreationBox(null);
+		setMenuFeedbackMessage("Criação de usuário e pets concluída!");
 		setActivePane(menuPane);
 	}
 
 	@FXML
 	void goToMenu(ActionEvent event) {
+		setMenuFeedbackMessage("");
 		setActivePane(menuPane);
 	}
 }
