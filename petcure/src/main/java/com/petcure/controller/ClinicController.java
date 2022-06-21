@@ -11,10 +11,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 public class ClinicController {
 	private ClinicModel clinicModel;
+	private CustomerModel lastCustomerAdded;
+	private ArrayList<AnimalModel> lastAnimalsAdded;
 
 	@FXML
 	private AnchorPane menuPane;
@@ -27,6 +31,15 @@ public class ClinicController {
 
 	@FXML
 	private AnchorPane customerCreationPane;
+
+	@FXML
+	private AnchorPane petCreationPane;
+
+	@FXML
+	private VBox dogCreationBox;
+
+	@FXML
+	private VBox catCreationBox;
 
 	@FXML
 	private Label clinicInfoLabel;
@@ -43,8 +56,27 @@ public class ClinicController {
 	@FXML
 	private TextField customerCreationDebtInput;
 
+	@FXML
+	private TextField dogCreationNameInput;
+
+	@FXML
+	private TextField dogCreationWeightInput;
+
+	@FXML
+	private TextField dogCreationBreedInput;
+
+	@FXML
+	private TextField catCreationNameInput;
+
+	@FXML
+	private TextField catCreationWeightInput;
+
+	@FXML
+	private CheckBox catCreationWildCheckbox;
+
 	public ClinicController() {
 		this.clinicModel = new ClinicModel();
+		this.lastAnimalsAdded = new ArrayList<AnimalModel>();
 	}
 
 	private void setActivePane(AnchorPane pane) {
@@ -52,6 +84,7 @@ public class ClinicController {
 		clinicInfoPane.setVisible(false);
 		customerListPane.setVisible(false);
 		customerCreationPane.setVisible(false);
+		petCreationPane.setVisible(false);
 
 		pane.setVisible(true);
 	}
@@ -60,6 +93,40 @@ public class ClinicController {
 		customerCreationNameInput.setText("");
 		customerCreationPhoneInput.setText("");
 		customerCreationDebtInput.setText("");
+	}
+
+	private void clearPetCreationInputs() {
+		dogCreationNameInput.setText("");
+		dogCreationWeightInput.setText("");
+		dogCreationBreedInput.setText("");
+		catCreationNameInput.setText("");
+		catCreationWeightInput.setText("");
+		catCreationWildCheckbox.setSelected(false);
+	}
+
+	private void setActivePetCreationBox(VBox box) {
+		dogCreationBox.setVisible(false);
+		catCreationBox.setVisible(false);
+
+		if (box != null) {
+			box.setVisible(true);
+		}
+	}
+
+	private void addDogOrCatToCustomer() {
+		if (dogCreationBox.isVisible()) {
+			String name = dogCreationNameInput.getText();
+			int weight = Integer.parseInt(dogCreationWeightInput.getText());
+			String breed = dogCreationBreedInput.getText();
+			AnimalModel lastAnimalAdded = lastCustomerAdded.addDog(name, weight, breed);
+			lastAnimalsAdded.add(lastAnimalAdded);
+		} else if (catCreationBox.isVisible()) {
+			String name = catCreationNameInput.getText();
+			int weight = Integer.parseInt(catCreationWeightInput.getText());
+			boolean wild = catCreationWildCheckbox.isSelected();
+			AnimalModel lastAnimalAdded = lastCustomerAdded.addCat(name, weight, wild);
+			lastAnimalsAdded.add(lastAnimalAdded);
+		}
 	}
 
 	@FXML
@@ -142,14 +209,59 @@ public class ClinicController {
 		String name = customerCreationNameInput.getText();
 		String phone = customerCreationPhoneInput.getText();
 		int debt = Integer.parseInt(customerCreationDebtInput.getText());
-		clinicModel.addCustomer(name, phone, debt);
+		lastCustomerAdded = clinicModel.addCustomer(name, phone, debt);
 		clearCustomerCreationInputs();
-		setActivePane(menuPane);
+		setActivePane(petCreationPane);
 	}
 
 	@FXML
 	void customerCreationCancel(ActionEvent event) {
 		clearCustomerCreationInputs();
+		setActivePane(menuPane);
+	}
+
+	@FXML
+	void petCreationAddDog(ActionEvent event) {
+		clearPetCreationInputs();
+		setActivePetCreationBox(dogCreationBox);
+	}
+
+	@FXML
+	void petCreationAddCat(ActionEvent event) {
+		clearPetCreationInputs();
+		setActivePetCreationBox(catCreationBox);
+	}
+
+	@FXML
+	void petCreationCancel(ActionEvent event) {
+		lastCustomerAdded.removePets(lastAnimalsAdded);
+		lastAnimalsAdded.clear();
+
+		ArrayList<CustomerModel> lastCustomerAddedArr = new ArrayList<CustomerModel>() {
+			{
+				add(lastCustomerAdded);
+			}
+		};
+		clinicModel.removeCustomers(lastCustomerAddedArr);
+		lastCustomerAdded = null;
+
+		clearPetCreationInputs();
+		setActivePetCreationBox(null);
+		setActivePane(menuPane);
+	}
+
+	@FXML
+	void petCreationNewPet(ActionEvent event) {
+		addDogOrCatToCustomer();
+		clearPetCreationInputs();
+		setActivePetCreationBox(null);
+	}
+
+	@FXML
+	void petCreationSave(ActionEvent event) {
+		addDogOrCatToCustomer();
+		clearPetCreationInputs();
+		setActivePetCreationBox(null);
 		setActivePane(menuPane);
 	}
 

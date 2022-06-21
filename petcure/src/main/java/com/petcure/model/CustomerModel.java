@@ -26,14 +26,20 @@ public class CustomerModel extends PersonModel {
 		return pets;
 	}
 
-	public void addDog(String name, int weight, String breed) {
-		AnimalModel pet = new DogModel(name, weight, breed);
-		this.pets.add(pet);
+	public void removePets(ArrayList<AnimalModel> pets) {
+		this.pets.removeAll(pets);
 	}
 
-	public void addCat(String name, int weight, boolean isWild) {
+	public AnimalModel addDog(String name, int weight, String breed) {
+		AnimalModel pet = new DogModel(name, weight, breed);
+		this.pets.add(pet);
+		return pet;
+	}
+
+	public AnimalModel addCat(String name, int weight, boolean isWild) {
 		AnimalModel pet = new CatModel(name, weight, isWild);
 		this.pets.add(pet);
+		return pet;
 	}
 
 	@Override

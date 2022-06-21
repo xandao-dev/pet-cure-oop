@@ -52,10 +52,11 @@ public class ClinicModel {
 		this.customers.add(customer);
 	}
 
-	public void addCustomer(String name, String phone, int debt) {
+	public CustomerModel addCustomer(String name, String phone, int debt) {
 		CustomerModel customer = new CustomerModel(name, phone);
 		customer.setDebt(debt);
 		this.customers.add(customer);
+		return customer;
 	}
 
 	public void removeCustomers(ArrayList<CustomerModel> customers) {
