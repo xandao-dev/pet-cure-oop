@@ -14,12 +14,12 @@
 <children>
       <ImageView fitHeight="82.0" fitWidth="60.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <image>
-            <Image url="@../../../../../assets/dog1.png" />
+            <Image url="@../../../../assets/dog1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="111.0" layoutX="489.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1.0">
          <image>
-            <Image url="@../../../../../assets/dog2.png" />
+            <Image url="@../../../../assets/dog2.png" />
          </image>
       </ImageView>
       <Label layoutX="244.0" layoutY="10.0" text="PetCure" textAlignment="CENTER" AnchorPane.topAnchor="10.0">
@@ -284,6 +284,9 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
+			    <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
             </MenuButton>
          </children>
       </AnchorPane>
