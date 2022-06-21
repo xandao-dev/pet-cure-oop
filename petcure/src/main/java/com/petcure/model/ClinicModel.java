@@ -40,7 +40,7 @@ public class ClinicModel {
 
 	}
 
-	public void addSampleCustomer() {
+	public CustomerModel addSampleCustomer() {
 		String name = faker.name().fullName();
 		String phone = faker.phoneNumber().cellPhone();
 		CustomerModel customer = new CustomerModel(name, phone);
@@ -50,6 +50,7 @@ public class ClinicModel {
 		}
 		customer.setDebt(debt);
 		this.customers.add(customer);
+		return customer;
 	}
 
 	public CustomerModel addCustomer(String name, String phone, int debt) {

@@ -5,6 +5,7 @@ import com.petcure.model.ClinicModel;
 import com.petcure.model.CustomerModel;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -14,8 +15,10 @@ import javafx.scene.control.TreeView;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import com.github.javafaker.Faker;
 
 public class ClinicController {
+	private Faker faker;
 	private ClinicModel clinicModel;
 	private CustomerModel lastCustomerAdded;
 	private ArrayList<AnimalModel> lastAnimalsAdded;
@@ -75,6 +78,7 @@ public class ClinicController {
 	private CheckBox catCreationWildCheckbox;
 
 	public ClinicController() {
+		this.faker = new Faker(new Locale("pt-BR"));
 		this.clinicModel = new ClinicModel();
 		this.lastAnimalsAdded = new ArrayList<AnimalModel>();
 	}
@@ -175,7 +179,23 @@ public class ClinicController {
 
 	@FXML
 	void menuAddSampleCustomer(ActionEvent event) {
-		clinicModel.addSampleCustomer();
+		CustomerModel customer = clinicModel.addSampleCustomer();
+		int numOfPets = faker.number().numberBetween(0, 5);
+
+		for (int i = 0; i < numOfPets; i++) {
+			int catOrDog = faker.number().numberBetween(0, 1);
+			if (catOrDog == 0) {
+				String name = faker.cat().name();
+				int weight = faker.number().numberBetween(1, 20);
+				boolean wild = faker.bool().bool();
+				customer.addCat(name, weight, wild);
+			} else {
+				String name = faker.dog().name();
+				int weight = faker.number().numberBetween(1, 40);
+				String breed = faker.dog().breed();
+				customer.addDog(name, weight, breed);
+			}
+		}
 		// Set message OK
 	}
 
