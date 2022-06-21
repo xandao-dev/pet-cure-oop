@@ -41,31 +41,39 @@
 
 <div align="center">
   <a href="https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2">
-    <img src="images/gui.png" alt="Veterinary clinic GUI">
+    <img src="images/petcure.gif" alt="Veterinary clinic GUI">
   </a>
 </div>
 
 ### Features
 
-* Register pets
-* Register their owners
-* Register anamnese
-* Persist data in a file
+* Register customers and their pets
+* Register sample customers
+* Show clinic info
+* Show customers with their pets in a tree view
+* Remove customers
+* Persist and load data from file
 * GUI for the application
 
 ### Built With
 
 * [Java JDK LTS+](https://www.oracle.com/java/technologies/downloads/)
+* [Maven](https://maven.apache.org/)
+* [JavaFX](https://openjfx.io/)
+* [Faker](https://github.com/DiUS/java-faker)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 * Run PetCure from the command line:
 
-	```sh
-  javac src/petcure/PetStore.java
-  java -cp src petcure.PetStore
-  ```
+	You will need to have the [Java JDK LTS+](https://www.oracle.com/java/technologies/downloads/) and [Maven](https://maven.apache.org/) installed.
+
+	```bash
+	cd petcure
+	mvn compile
+	mvn exec:java -Dexec.mainClass=com.petcure.App
+	```
 
 <!-- ROADMAP -->
 ## Roadmap
