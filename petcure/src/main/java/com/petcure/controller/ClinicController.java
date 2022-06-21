@@ -260,6 +260,8 @@ public class ClinicController {
 	@FXML
 	void petCreationSave(ActionEvent event) {
 		addDogOrCatToCustomer();
+		lastCustomerAdded = null;
+		lastAnimalsAdded.clear();
 		clearPetCreationInputs();
 		setActivePetCreationBox(null);
 		setActivePane(menuPane);
