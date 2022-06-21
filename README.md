@@ -42,6 +42,7 @@
 <div align="center">
   <a href="https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2">
     <img src="images/petcure.gif" alt="Veterinary clinic GUI">
+	<img src="images/uml.png" alt="PetCure UML Class Diagram">
   </a>
 </div>
 
