@@ -7,11 +7,11 @@
 	A project made for the Object Oriented Programming subject with JAVA, course at PUCPR 2022.
     <br />
 	<br />
-    <a href="https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/xandao6/pet-cure-oop"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2/issue">Report Bug</a>
+    <a href="https://github.com/xandao6/pet-cure-oop/issue">Report Bug</a>
     ·
-    <a href="https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2/issues">Request Feature</a>
+    <a href="https://github.com/xandao6/pet-cure-oop/issues">Request Feature</a>
   </p>
 </p>
 
@@ -39,10 +39,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<div align="center">
-  <a href="https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2">
-    <img src="images/petcure.gif" alt="Veterinary clinic GUI">
-	<img src="images/uml.png" alt="PetCure UML Class Diagram">
+https://user-images.githubusercontent.com/22106326/187049947-6b6024b4-2faa-4d98-b229-83a38f9181d1.mp4
+
+<div>
+  <a href="https://github.com/xandao6/pet-cure-oop">
+	  <img src="./assets/uml.png" alt="PetCure UML Class Diagram">
   </a>
 </div>
 
@@ -79,7 +80,7 @@
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/xandao6/pet-cure-oop/issues) for a list of proposed features (and known issues).
 
 
 <!-- CONTRIBUTING -->
@@ -98,7 +99,11 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See [LICENSE](./LICENSE.md) for more information.
 
+Free Software =)
+
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2](https://github.com/valmir-filho/ADS-PUCPR-2022-POO-AS2)
+Alexandre Calil - [@xandao6](https://www.linkedin.com/in/xandao6/) - alexandrecalilmf@gmail.com
+
+Project Link: [https://github.com/xandao6/pet-cure-oop](https://github.com/xandao6/pet-cure-oop)
