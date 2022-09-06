@@ -1,17 +1,16 @@
 <br />
 <p align="center">
   <h3 align="center">PetCure - Veterinary clinic</h3>
-
   <p align="center">
 	PetCure is a fake veterinary clinic. It's a simple application that allows you to register your pets, owners, and a simple anamnese.
 	A project made for the Object Oriented Programming subject with JAVA, course at PUCPR 2022.
     <br />
 	<br />
-    <a href="https://github.com/xandao6/pet-cure-oop"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/xandao-dev/pet-cure-oop"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/xandao6/pet-cure-oop/issue">Report Bug</a>
+    <a href="https://github.com/xandao-dev/pet-cure-oop/issue">Report Bug</a>
     ·
-    <a href="https://github.com/xandao6/pet-cure-oop/issues">Request Feature</a>
+    <a href="https://github.com/xandao-dev/pet-cure-oop/issues">Request Feature</a>
   </p>
 </p>
 
@@ -42,7 +41,7 @@
 https://user-images.githubusercontent.com/22106326/187049947-6b6024b4-2faa-4d98-b229-83a38f9181d1.mp4
 
 <div>
-  <a href="https://github.com/xandao6/pet-cure-oop">
+  <a href="https://github.com/xandao-dev/pet-cure-oop">
 	  <img src="./assets/uml.png" alt="PetCure UML Class Diagram">
   </a>
 </div>
@@ -80,7 +79,7 @@ https://user-images.githubusercontent.com/22106326/187049947-6b6024b4-2faa-4d98-
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/xandao6/pet-cure-oop/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/xandao-dev/pet-cure-oop/issues) for a list of proposed features (and known issues).
 
 
 <!-- CONTRIBUTING -->
@@ -104,6 +103,6 @@ Free Software =)
 <!-- CONTACT -->
 ## Contact
 
-Alexandre Calil - [@xandao6](https://www.linkedin.com/in/xandao6/) - alexandrecalilmf@gmail.com
+Alexandre Calil - [Linkedin](https://www.linkedin.com/in/xandao-dev/) - [alexandre@xandao.dev](mailto:alexandre@xandao.dev)
 
-Project Link: [https://github.com/xandao6/pet-cure-oop](https://github.com/xandao6/pet-cure-oop)
+Project Link: [https://github.com/xandao-dev/pet-cure-oop](https://github.com/xandao-dev/pet-cure-oop)
